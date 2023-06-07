@@ -82,7 +82,7 @@ PART_PATTERNS = collections.OrderedDict(
         ('PATCH'  , r"[0-9]+"),
         ('BUILD'  , r"[0-9]+"),
         ('BLD'    , r"[1-9][0-9]*"),
-        ('TAG'    , r"preview|final|dev|alpha|beta|post|rc"),
+        ('TAG'    , r"preview|final|nightly|dev|alpha|beta|post|rc"),
         ('PYTAG'  , r"dev|post|rc|a|b"),
         ('GITHASH', r"\.[0-9]+\+.*"),
         ('NUM'    , r"[0-9]+"),

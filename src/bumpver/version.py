@@ -94,12 +94,13 @@ TODAY = dt.datetime.utcnow().date()
 
 
 TAG_BY_PEP440_TAG = {
-    'a'   : 'alpha',
-    'b'   : 'beta',
-    ''    : 'final',
-    'rc'  : 'rc',
-    'dev' : 'dev',
-    'post': 'post',
+    'a'      : 'alpha',
+    'b'      : 'beta',
+    ''       : 'final',
+    'nightly': 'nightly',
+    'rc'     : 'rc',
+    'dev'    : 'dev',
+    'post'   : 'post',
 }
 
 
@@ -114,6 +115,7 @@ PEP440_TAG_BY_TAG = {
     'rc'     : 'rc',
     'c'      : 'rc',
     'final'  : '',
+    'nightly': 'nightly',
     'post'   : 'post',
     'r'      : 'post',
     'rev'    : 'post',
