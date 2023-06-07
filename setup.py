@@ -31,7 +31,7 @@ install_requires = [
 ]
 
 
-long_description = "\n\n".join((read("README.md"), read("CHANGELOG.md")))
+long_description = read("README.md")
 
 
 # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -57,18 +57,13 @@ classifiers = [
 package_dir = {"": "src"}
 
 
-if any(arg.startswith("bdist") for arg in sys.argv):
-    import lib3to6
-    package_dir = lib3to6.fix(package_dir)
-
-
 setuptools.setup(
     name="bumpver",
     license="MIT",
     author="Manuel Barkhau",
     author_email="mbarkhau@gmail.com",
     url="https://github.com/mbarkhau/bumpver",
-    version="2023.1124",
+    version="2023.1125",
     keywords="version bumpver calver semver versioning bumpversion pep440",
     description="Bump version numbers in project files.",
     long_description=long_description,
