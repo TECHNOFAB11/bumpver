@@ -517,7 +517,13 @@ def _is_valid_version(raw_pattern: str, old_version: str, new_version: str) -> b
         logger.error(f"Invalid version '{new_version}' for pattern '{raw_pattern}'")
         return False
 
-    if version.parse_version(new_version) <= version.parse_version(old_version):
+    force_loose = not isinstance(
+        version.parse_version(new_version), type(version.parse_version(old_version))
+    )
+    if (
+        version.parse_version(new_version, force_loose)
+        <= version.parse_version(old_version, force_loose)
+    ):
         logger.error("Invariant violated: New version must be greater than old version ")
         logger.error(f"  Failed Invariant: '{new_version}' > '{old_version}'")
         logger.error("If the invariant is from vcs tags try '--ignore-vcs-tag' option.")

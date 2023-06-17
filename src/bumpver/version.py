@@ -9,17 +9,18 @@ import datetime as dt
 MaybeInt = typ.Optional[int]
 
 
-def parse_version(version: str) -> typ.Any:
+def parse_version(version: str, loose: bool = False) -> typ.Any:
     # pylint: disable=import-outside-toplevel; lazy import to speed up --help
 
-    try:
-        import pkg_resources
+    if not loose:
+        try:
+            import pkg_resources
+            return pkg_resources.parse_version(version)
+        except (ImportError, ValueError):
+            pass
 
-        return pkg_resources.parse_version(version)
-    except (ImportError, ValueError):
-        import looseversion
-
-        return looseversion.LooseVersion(version)
+    import looseversion
+    return looseversion.LooseVersion(version)
 
 
 class V1CalendarInfo(typ.NamedTuple):
